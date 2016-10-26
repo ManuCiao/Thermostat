@@ -1,14 +1,23 @@
+
 const DEFAULT_TEMPERATURE = 20;
 const MINIMUM_TEMPERATURE = 10;
 const POWER_ON_LIMIT = 25;
 const POWER_OFF_LIMIT = 32;
 
-Thermostat = function(temperature = DEFAULT_TEMPERATURE) {
+Thermostat = function() {
   this._powerOn = true;
-  this._temperature = temperature;
+  this._temperature = DEFAULT_TEMPERATURE;
   this._lowLimit = MINIMUM_TEMPERATURE;
   this._highLimitPS = POWER_ON_LIMIT;
   this._highLimitNP = POWER_OFF_LIMIT;
+};
+
+Thermostat.prototype.defaultTemperature = function () {
+  return this._temperature;
+};
+
+Thermostat.prototype.isMinTemperature = function () {
+  return this._temperature === this._lowLimit;
 };
 
 Thermostat.prototype.increaseTemperature = function () {
@@ -22,11 +31,10 @@ Thermostat.prototype.increaseTemperature = function () {
 };
 
 Thermostat.prototype.decreaseTemperature = function () {
-  if (this._temperature <= this._lowLimit) {
-    throw ("The Thermostat cannot go below 10 degrees");
-  } else {
-    this._temperature -= 1;
-  };
+  if (this.isMinTemperature()) {
+    return;
+  }
+  this._temperature -= 1;
 };
 
 Thermostat.prototype.powerModeOff = function () {

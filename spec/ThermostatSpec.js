@@ -1,3 +1,4 @@
+
 describe("Thermostat", function() {
   var thermostat;
 
@@ -5,6 +6,9 @@ describe("Thermostat", function() {
     thermostat = new Thermostat();
   });
 
+  it("returns the default temperature", function(){
+    expect(thermostat._temperature).toEqual(20);
+  });
   it("should have power saving mode on by default", function() {
     expect(thermostat._powerOn).toBeTruthy();
   });
@@ -28,23 +32,20 @@ describe("Thermostat", function() {
  });
  describe ("thermostat cannot breach limit", function(){
    it("cannot go below 10", function(){
-     var times = 10;
-     for(var i = 0; i < times; i++){
+     for(var i = 0; i < 10; i++){
      thermostat.decreaseTemperature();};
-     expect(function() {thermostat.decreaseTemperature()}).toThrow("The Thermostat cannot go below 10 degrees");
+     expect(thermostat.defaultTemperature()).toEqual(10)
    });
   });
 describe("thermostat cannot breach power save limit", function() {
   it("cannot go above 25", function() {
-    var times = 5;
-    for(var i = 0; i < times; i++){
+    for(var i = 0; i < 5; i++){
     thermostat.increaseTemperature();};
     expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 25 degrees");
   });
   it("cannot go beyond 32, when power is off", function() {
     thermostat.powerModeOff();
-    var times = 12;
-    for(var i = 0; i < times; i++){
+    for(var i = 0; i < 12; i++){
     thermostat.increaseTemperature();};
     expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 32 degrees");
   });
@@ -61,9 +62,8 @@ describe("thermostat cannot breach power save limit", function() {
    });
    describe("Energy usage", function(){
        it("return low usage when below 18", function() {
-         thermostat.decreaseTemperature();
-         thermostat.decreaseTemperature();
-         thermostat.decreaseTemperature();
+         for (var i = 0; i < 3; i++) {
+           thermostat.decreaseTemperature();};
          expect(thermostat.tellUsUsage()).toBe("low-usage");
        });
      });
