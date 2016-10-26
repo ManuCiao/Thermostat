@@ -43,8 +43,9 @@ describe("Thermostat", function() {
       expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 25 degrees");
     });
     it("cannot go beyond 32, when power is off", function() {
+      // thermostat._powerOn = false;
       thermostat.powerModeOff();
-      var times = 13;
+      var times = 12;
       for(var i = 0; i < times; i++){
       thermostat.increaseTemperature();};
       console.log(thermostat._temperature);
