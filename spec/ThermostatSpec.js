@@ -60,4 +60,32 @@ describe("thermostat cannot breach power save limit", function() {
        expect(thermostat._powerOn).toBeTruthy();
      });
    });
+   describe("Energy usage", function(){
+       it("return low usage when below 18", function() {
+         thermostat.decreaseTemperature();
+         thermostat.decreaseTemperature();
+         thermostat.decreaseTemperature();
+         expect(thermostat.tellUsUsage()).toBe("low-usage");
+       });
+     });
+
+   describe("Energy usage", function(){
+       it("return medium usage when below 25", function() {
+         var times = 4;
+         for(var i = 0; i < times; i++){
+         thermostat.increaseTemperature();};
+         expect(thermostat.tellUsUsage()).toBe("medium-usage");
+       });
+     });
+
+   describe("Energy usage", function(){
+       it("return high usage when above 25", function() {
+         thermostat.powerModeOff();
+         var times = 6;
+         for(var i = 0; i < times; i++){
+         thermostat.increaseTemperature();};
+         expect(thermostat.tellUsUsage()).toBe("high-usage");
+       });
+     });
+
 });

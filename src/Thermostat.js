@@ -22,9 +22,9 @@ Thermostat.prototype.increaseTemperature = function () {
 };
 
 Thermostat.prototype.decreaseTemperature = function () {
-    if (this._temperature <= this._lowLimit) {
-      throw ("The Thermostat cannot go below 10 degrees");
-    } else {
+  if (this._temperature <= this._lowLimit) {
+    throw ("The Thermostat cannot go below 10 degrees");
+  } else {
     this._temperature -= 1;
   };
 };
@@ -34,6 +34,16 @@ Thermostat.prototype.powerModeOff = function () {
 }
 
 Thermostat.prototype.resetTemperature = function () {
-  this._powerOn = true; 
+  this._powerOn = true;
   this._temperature = DEFAULT_TEMPERATURE;
+};
+
+Thermostat.prototype.tellUsUsage = function () {
+  if (this._temperature < 18) {
+    return "low-usage";
+  } else if (this._temperature < 25) {
+    return "medium-usage";
+  } else {
+    return "high-usage";
+  }
 };
