@@ -8,11 +8,14 @@ Thermostat = function(temperature = DEFAULT_TEMPERATURE) {
   this._temperature = temperature;
   this._lowLimit = MINIMUM_TEMPERATURE;
   this._highLimitPS = POWER_ON_LIMIT;
+  this._highLimitNP = POWER_OFF_LIMIT;
 };
 
 Thermostat.prototype.increaseTemperature = function () {
   if ((this._powerOn) && (this._temperature >= this._highLimitPS)) {
     throw ("The Thermostat cannot go above 25 degrees");
+  } else if (this._temperature >= this._highLimitNP) {
+    throw ("The Thermostat cannot go above 32 degrees");
   } else {
     this._temperature += 1;
   }
@@ -25,3 +28,7 @@ Thermostat.prototype.decreaseTemperature = function () {
     this._temperature -= 1;
   };
 };
+
+Thermostat.prototype.powerModeOff = function () {
+  this._powerOn = false;
+}
