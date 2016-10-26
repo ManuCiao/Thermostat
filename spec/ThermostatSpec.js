@@ -26,9 +26,17 @@ describe("Thermostat", function() {
    it("cannot go below 10", function(){
      var times = 10;
      for(var i = 0; i < times; i++){
-       console.log(thermostat._temperature);
      thermostat.decreaseTemperature();};
      expect(function() {thermostat.decreaseTemperature()}).toThrow("The Thermostat cannot go below 10 degrees");
    });
   });
+  describe("thermostat cannot breach power save limit", function() {
+    it("cannot go above 25", function() {
+      var times = 5;
+      for(var i = 0; i < times; i++){
+        console.log(thermostat._temperature);
+      thermostat.increaseTemperature();};
+      expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 25 degrees");
+    });
+   });
 });
