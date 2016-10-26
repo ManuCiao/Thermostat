@@ -35,21 +35,29 @@ describe("Thermostat", function() {
      expect(function() {thermostat.decreaseTemperature()}).toThrow("The Thermostat cannot go below 10 degrees");
    });
   });
-  describe("thermostat cannot breach power save limit", function() {
-    it("cannot go above 25", function() {
-      var times = 5;
-      for(var i = 0; i < times; i++){
-      thermostat.increaseTemperature();};
-      expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 25 degrees");
-    });
-    it("cannot go beyond 32, when power is off", function() {
-      // thermostat._powerOn = false;
-      thermostat.powerModeOff();
-      var times = 12;
-      for(var i = 0; i < times; i++){
-      thermostat.increaseTemperature();};
-      console.log(thermostat._temperature);
-      expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 32 degrees");
-    });
+describe("thermostat cannot breach power save limit", function() {
+  it("cannot go above 25", function() {
+    var times = 5;
+    for(var i = 0; i < times; i++){
+    thermostat.increaseTemperature();};
+    expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 25 degrees");
+  });
+  it("cannot go beyond 32, when power is off", function() {
+    thermostat.powerModeOff();
+    var times = 12;
+    for(var i = 0; i < times; i++){
+    thermostat.increaseTemperature();};
+    expect(function() {thermostat.increaseTemperature()}).toThrow("The Thermostat cannot go above 32 degrees");
+  });
+ });
+
+ describe("Reset the temperature to default value", function(){
+     it("turn into 20 degrees", function() {
+       thermostat.powerModeOff();
+       thermostat.increaseTemperature();
+       thermostat.resetTemperature();
+       expect(thermostat._temperature).toEqual(DEFAULT_TEMPERATURE);
+       expect(thermostat._powerOn).toBeTruthy();
+     });
    });
 });

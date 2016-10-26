@@ -32,3 +32,8 @@ Thermostat.prototype.decreaseTemperature = function () {
 Thermostat.prototype.powerModeOff = function () {
   this._powerOn = false;
 }
+
+Thermostat.prototype.resetTemperature = function () {
+  this._powerOn = true; 
+  this._temperature = DEFAULT_TEMPERATURE;
+};
