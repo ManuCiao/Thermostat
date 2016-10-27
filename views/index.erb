@@ -2,26 +2,33 @@
 <html>
 <head>
   <title>Thermostat</title>
-  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="thermostat.js" type="text/javascript"></script>
-  <script src="interface.js"></script>
   <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <link href="style.css" rel="stylesheet">
-  <link href="reset.css" rel="stylesheet">
+  <link href="css/style2.css" rel="stylesheet">
+  <link href="css/reset.css" rel="stylesheet">
 </head>
 <body>
-  <section>
-    <h1
-    <span id="Temperature"></span>°
-  </h1>
-  <button id="increaseTemperature">+</button>
-  <button id="decreaseTemperature">-</button>
-  <button id="resetTemperature">↺</button>
-  <label id="isPowerModeOn"> Power Saving Mode</label>
-  <button id="powerModeOn">ON</button>
-  <button id="powerModeOff">OFF</button>
+  <section class = "middle">
+    <section id="usageColor" class="high-usage medium-usage low-usage">
+     <h1><span id="Temperature"></span>°C</h1>
+    </section>
+  <section class = "tempButtons">
+    <button id="increaseTemperature">+</button>
+    <button id="decreaseTemperature">-</button>
+    <button id="resetTemperature">↺</button>
+  </section>
+  <section class = "PSM">
+    <label id="isPowerModeOn"> Power Saving Mode</label>
+  </section>
+  <section class = "PSM-buttons">
+   <button id="powerModeOn">On</button>
+   <button id="powerModeOff">Off</button>
+  </section>
 </section>
+
 <script type="text/javascript">
 $(document).ready(function() {
   var thermostat = new Thermostat();
@@ -38,7 +45,7 @@ $(document).ready(function() {
   })
 
   $('#resetTemperature').click(function() {
-    thermostat.reset();
+    thermostat.resetTemperature();
     updateTemperature();
   });
 
@@ -56,15 +63,9 @@ $(document).ready(function() {
 
   function updateTemperature() {
     $('#Temperature').text(thermostat._temperature);
-    if(thermostat.tellUsUsage() === 'low-usage') {
-      $('#Temperature').css('color', 'green')
-    } else if(thermostat.energyUsage() === 'medium-usage') {
-      $('#Temperature').css('color', 'yellow')
-    } else {
-      $('#Temperature').css('color', 'red')
-    }
+    $('#Temperature').attr('class', thermostat.tellUsUsage())
   }
-})
+});
 
 </script>
 </body>

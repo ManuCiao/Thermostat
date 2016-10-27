@@ -64,7 +64,7 @@ Thermostat.prototype.resetTemperature = function () {
 Thermostat.prototype.tellUsUsage = function () {
   if (this._temperature < this._lowUsage) {
     return "low-usage";
-  } else if (this._temperature < this._highLimitPS) {
+  } else if (this._temperature >= this._lowUsage && this._temperature <= this._highLimitPS) {
     return "medium-usage";
   } else {
     return "high-usage";
