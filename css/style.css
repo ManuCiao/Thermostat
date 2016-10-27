@@ -1,0 +1,13 @@
+
+body {
+  font-family: fantasy;
+}
+.high-usage {
+  color: red;
+}
+.medium-usage {
+  color: yellow;
+}
+.low-usage {
+  color: green;
+}

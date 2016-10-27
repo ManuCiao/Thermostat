@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thermostat</title>
+  <meta name="viewport" content="width=device-width">
+  <script src="thermostat.js" type="text/javascript"></script>
+  <script src="interface.js"></script>
+  <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <link href="reset.css" rel="stylesheet">
+</head>
+<body>
+  <section>
+    <h1
+    <span id="Temperature"></span>°
+  </h1>
+  <button id="increaseTemperature">+</button>
+  <button id="decreaseTemperature">-</button>
+  <button id="resetTemperature">↺</button>
+  <label id="isPowerModeOn"> Power Saving Mode</label>
+  <button id="powerModeOn">ON</button>
+  <button id="powerModeOff">OFF</button>
+</section>
+<script type="text/javascript">
+$(document).ready(function() {
+  var thermostat = new Thermostat();
+  $('#Temperature').text(thermostat._temperature);
+
+  $('#increaseTemperature').on('click', function() {
+    thermostat.increaseTemperature(1);
+    updateTemperature();
+  })
+
+  $('#decreaseTemperature').on('click', function() {
+    thermostat.decreaseTemperature(1);
+    updateTemperature();
+  })
+
+  $('#resetTemperature').click(function() {
+    thermostat.reset();
+    updateTemperature();
+  });
+
+  $('#powerModeOn').click(function() {
+    thermostat.powerModeOn();
+    $('#isPowerModeOn').text('ON')
+    updateTemperature();
+  })
+
+  $('#powerModeOff').click(function() {
+    thermostat.powerModeOff();
+    $('#isPowerModeOn').text('OFF')
+    updateTemperature();
+  })
+
+  function updateTemperature() {
+    $('#Temperature').text(thermostat._temperature);
+    if(thermostat.tellUsUsage() === 'low-usage') {
+      $('#Temperature').css('color', 'green')
+    } else if(thermostat.energyUsage() === 'medium-usage') {
+      $('#Temperature').css('color', 'yellow')
+    } else {
+      $('#Temperature').css('color', 'red')
+    }
+  }
+})
+
+</script>
+</body>
+</html>
