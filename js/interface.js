@@ -42,7 +42,7 @@ $(document).ready(function() {
     $('#Temp').text(thermostat._temperature);
     $('#Temp').attr('class', thermostat.tellUsUsage());
     $('#celsius').attr('class', thermostat.tellUsUsage());
-    // $('#title').attr('class', thermostat.tellUsUsage());
+    $('#Temperature').attr('class', thermostat.tellUsUsage());
 
   };
 

@@ -54,12 +54,21 @@ body {
 }
 
 #Temperature {
-  font-size: 130px;
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 140px;
   line-height: 1em;
   color: #fdfdfd;
   text-shadow: 2px 2px 3px black;
   font-family:'Indie Flower', cursive;
+  /*padding: 30px 2px 30px 2px;*/
+  margin: 20px;
+  /*border-radius: 50%;
+  border: 15px solid;
+  box-shadow:2px 2px 3px black;*/
 }
+
+
 
 #isPowerModeOn, h3 {
   font-size: 2em;
