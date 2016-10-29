@@ -17,7 +17,7 @@ Specification
   - < 25 is yellow,
   - otherwise red
 
-<img src="https://github.com/ManuCiao/Thermostat/tree/master/js/img/Homepage.png">
+![alt text](js/img/Homepage.png "Termostat homepage")
 
 Languages and Tools
 -------------------
