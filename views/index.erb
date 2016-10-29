@@ -13,6 +13,7 @@
 <body>
   <div id="main">
     <h1 id="title">Your Thermostat</h1>
+    <h1 id="city"></h1>
     <div id="quick-view">
       <div id="usageColor" class="high-usage medium-usage low-usage">
         <h1>
@@ -20,24 +21,23 @@
           <span id="Temp"></span><span id="celsius">°C</span>
         </div>
         <div class = "tempButtons">
-            <button id="increaseTemperature"><i class="fa fa-arrow-circle-o-up"></i></button>
-            <button id="resetTemperature"><i class="fa fa-undo"></i></button>
-            <button id="decreaseTemperature"><i class="fa fa-arrow-circle-o-down"></i></button>
+            <h4 id="legendUsage"></h4>
+            <button id="increaseTemperature" title="Increase Temperature"><i class="fa fa-arrow-circle-o-up"></i></button>
+            <button id="resetTemperature" title="Reset Temperature"><i class="fa fa-undo"></i></button>
+            <button id="decreaseTemperature" title="Decrease Temperature"><i class="fa fa-arrow-circle-o-down"></i></button>
         </div>
-
         </h1>
       </div>
     </div>
     <div id="grid">
-      <!-- <h3><div id="isPowerModeOn"> Power Saving<br> Mode</div></h3> -->
         <h3 id="isPowerModeOn"> Power Saving Mode </h3>
         <button id="powerModeOn">On</button>
         <button id="powerModeOff">Off</button>
     </div>
-    <div class="form">
+    <div class="form" action="">
     <h3>Find the Temperature in your City</h3>
     <form id="select-city">
-      <input id="current-city" type="text" placeholder="Enter your city"></input>
+      <input id="current-city" type="text" placeholder="Enter your city" required></input>
       <button type="submit" value ="Search"><i class="fa fa-search"></i></button>
     </form>
   </div>

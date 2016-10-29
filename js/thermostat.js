@@ -50,9 +50,9 @@ Thermostat.prototype.powerModeOn = function () {
 
 Thermostat.prototype.isMaxTemperature = function () {
   if (this.isPowerModeOn() === false){
-    return this._temperature === this._highLimitNP
+    return this._temperature === this._highLimitNP;
   }
-  return this._temperature === this._highLimitPS
+  return this._temperature === this._highLimitPS;
 };
 
 

@@ -26,7 +26,6 @@ body {
   padding-top: 5%;
   min-height: 100%;
   position: relative;
-
 }
 
 
@@ -46,11 +45,10 @@ body {
   display: block;
   font-size: 4.5em;
   line-height: 1em;
-  font-weight: normal;
+  font-weight: bolder;
   color: #fdfdfd;
   text-shadow: 2px 2px 3px black;
   font-family:'Indie Flower', cursive;
-  padding-bottom: 50px;
 }
 
 #Temperature {
@@ -61,16 +59,10 @@ body {
   color: #fdfdfd;
   text-shadow: 2px 2px 3px black;
   font-family:'Indie Flower', cursive;
-  /*padding: 30px 2px 30px 2px;*/
-  margin: 20px;
-  /*border-radius: 50%;
-  border: 15px solid;
-  box-shadow:2px 2px 3px black;*/
+  margin: 10px;
 }
 
-
-
-#isPowerModeOn, h3 {
+#isPowerModeOn, h3, #city{
   font-size: 2em;
   line-height: 1.2em;
   font-weight: normal;
@@ -80,6 +72,18 @@ body {
   margin-bottom: 18px;
   padding: 30px 0 20px 0;
 }
+
+#legendUsage{
+  font-size: 2em;
+  line-height: 1.2em;
+  font-weight: normal;
+  color: #fdfdfd;
+  text-shadow: 2px 2px 3px black;
+  font-family:'Indie Flower', cursive;
+  margin-bottom: 18px;
+  display: inherit;
+}
+
 
 #powerModeOn{
   opacity: 0.7;
