@@ -1,0 +1,26 @@
+{
+  "name": "thermostat",
+  "version": "1.0.0",
+  "description": "thermostat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuCiao/Thermostat.git"
+  },
+  "keywords": [
+    "js",
+    "jquery",
+    "ajax",
+    "api",
+    "ruby"
+  ],
+  "author": "Manuela Sabatino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManuCiao/Thermostat/issues"
+  },
+  "homepage": "https://github.com/ManuCiao/Thermostat#readme"
+}
