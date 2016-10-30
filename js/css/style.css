@@ -11,7 +11,7 @@ html{
 }
 
 /*Normalize html and body elements,this style is just good to have*/
-html,body{
+html, body{
   margin:0;
   padding:0;
 }
@@ -62,7 +62,7 @@ body {
   margin: 10px;
 }
 
-#isPowerModeOn, h3, #city{
+#isPowerModeOn, h3{
   font-size: 2em;
   line-height: 1.2em;
   font-weight: normal;
@@ -72,6 +72,18 @@ body {
   margin-bottom: 18px;
   padding: 30px 0 20px 0;
 }
+
+#city{
+  font-size: 2em;
+  line-height: 1.2em;
+  font-weight: normal;
+  color: #fdfdfd;
+  text-shadow: 2px 2px 3px black;
+  font-family:'Indie Flower', cursive;
+  margin-bottom: 18px;
+  padding: 10px 0 20px 0;
+}
+
 
 #legendUsage{
   font-size: 2em;
@@ -119,13 +131,16 @@ body {
 }
 /* Main content */
 
-.main {
-  height: 100vh;
-  width: 46em;
+#main {
+  background-color: rgba(0,0,0,0.5);
+  width: 700px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 1em;
+  padding: 50px;
   text-align: center;
+  border-radius: 35px;
+
+
 }
 
  #select-city button {
